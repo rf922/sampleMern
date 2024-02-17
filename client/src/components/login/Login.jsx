@@ -31,13 +31,16 @@ const Login = () => {
     return (
        
         <div className="Login">
-            <h1>Login</h1>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" value={username} onChange={handleNameChange}/>
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={password} onChange={handlePasswordChange} />
-            <button onClick={handleLogin}>Login</button>
-         
+            <div className="login-card">
+                <h1>Login</h1>
+                <label htmlFor="username">Username</label>
+                <input type="text" placeholder="Type your username" id="username" value={username} onChange={handleNameChange}/>
+                <label htmlFor="password">Password</label>
+                <input type="password" placeholder="Type your password" id="password" value={password} onChange={handlePasswordChange} />
+                <br />
+                <p>Don't have an account? Register <a href="/register">here</a></p>
+                <button onClick={handleLogin}>Login</button>
+            </div>
         </div>
        
     )

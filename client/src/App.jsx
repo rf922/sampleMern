@@ -8,7 +8,6 @@ const App = () => {
 
   return (
     <div className="App">
-     <header>Hello this is a sample login form</header>
      <Login />
     </div>
   )

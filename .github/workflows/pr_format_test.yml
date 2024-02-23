@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies in root
-        run: npm install
-
       - name: Install Dependencies in client
         run: (cd client && npm install)
 

@@ -1,0 +1,36 @@
+name: PR Format Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr_format_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies in root
+        run: npm install
+
+      - name: Install Dependencies in client
+        run: (cd client && npm install)
+
+      - name: Install Dependencies in server
+        run: (cd server && npm install)
+    
+      - name: Check Formatting in client
+        run: (cd client && npm run format:check)
+    
+      - name: Check Formatting in server
+        run: (cd server && npm run format:check) 
+    
+

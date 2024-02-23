@@ -1,16 +1,16 @@
-.login {
+.register {
     background-color: rgb(33, 31, 31);
     height: 100vh;
     width: 100vw;
 }
 
-.login-card {
+.register-card {
     padding: 10px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     border: 1px solid lightblue;
-    height: 70%;
+    height: 90%;
     width: 40%;
     position: fixed;
     left: 50%;
@@ -18,12 +18,12 @@
     transform: translate(-50%, -50%);
 }
 
-.login-card h1 {
+.register-card h1 {
     color: white;
     margin-bottom: 20px;
 }
 
-.login-card input {
+.register-card input {
     padding: 10px;
     margin: 10px;
     width: 80%;
@@ -32,22 +32,22 @@
     border-bottom: 1px solid lightblue;
 }
 
-.login-card > p > a:hover {
+.register-card > p > a:hover {
     color: lightblue;
     text-decoration: underline;
 }
 
-.login-card input:focus {
+.register-card input:focus {
     outline: none;
 }
 
-.login-card label {
+.register-card label {
     text-align: left;
     margin-left: 10px;
     padding: 10px;
 }
 
-.login-card button {
+.register-card button {
     color: black;
     padding: 10px;
     margin: 10px;

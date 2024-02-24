@@ -7,6 +7,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 // dotenv.config();
 
 const App = () => {
+    console.log("break the linter");
     return (
         <div className="App">
             <BrowserRouter>

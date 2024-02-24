@@ -18,6 +18,6 @@ const db = mysql.createPool({
   waitForConnections: true,
   database: process.env.DB_DATABASE_NAME,
 });
-console.log("connected to the database!");
+console.info("connected to the database!");
 
 module.exports = db;

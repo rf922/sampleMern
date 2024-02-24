@@ -1,10 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
 const db = require("../config/db");
 
-const login = async (req, res, next) => {
+const login = async (_req, res,) => {
   //TODO try to log user in
-
-  console.log(req.body);
   res.status(StatusCodes.OK).send("User logged in");
 };
 
@@ -22,7 +20,7 @@ const isUserExist = async (username) => {
   }
 };
 
-const register = async (req, res, next) => {
+const register = async (req, res) => {
   const { username, password } = req.body;
   console.info(
     "registering user: ",
@@ -44,7 +42,7 @@ const register = async (req, res, next) => {
   } catch (err) {
     console.error(err);
   }
-  console.log(req.body);
+  
   res.status(StatusCodes.INTERNAL_SERVER_ERROR).send("");
 };
 

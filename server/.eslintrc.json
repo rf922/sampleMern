@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
+    "commonjs": true,  //require and module.exports NOT import and export
     "es2021": true,
     "node": true
   },
@@ -10,6 +10,6 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "no-console": "error"
+    "no-console": ["error", { "allow": ["error", "info"] }]
   }
 }

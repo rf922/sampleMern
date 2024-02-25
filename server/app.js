@@ -12,16 +12,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //setup express session
-const sessionStore = new MySQLStore(
-  {},
-  require("./config/db")
-);
+const sessionStore = new MySQLStore({}, require("./config/db"));
 //mount the session store on the app server
 app.use(
   session({
     secret: "session_cookie_secret",
     store: sessionStore,
-    resave: false,  
+    resave: false,
     saveUninitialized: false,
     cookie: {
       secure: process.env.PRODUCTION,
@@ -31,20 +28,13 @@ app.use(
   }),
 );
 
-
-
-
 app.use("/user", require("./routers/userRouter")); //http://localhost:8080/user/login
 
 app.get("/", (req, res) => {
   req.session.isLoggedIn = true;
-  console.log(JSON.stringify(req.session));
+  
   res.send("Hello World!");
 });
-
-
-
-
 
 app.listen(port, () => {
   console.info(`Example app listening on port ${port}`);

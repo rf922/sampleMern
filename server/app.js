@@ -32,7 +32,7 @@ app.use("/user", require("./routers/userRouter")); //http://localhost:8080/user/
 
 app.get("/", (req, res) => {
   req.session.isLoggedIn = true;
-  
+
   res.send("Hello World!");
 });
 

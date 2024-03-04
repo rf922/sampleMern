@@ -1,5 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
 const db = require("../config/db");
+const bcrypt = require("bcrypt");
 
 const login = async (_req, res) => {
   //TODO try to log user in
@@ -22,21 +23,25 @@ const isUserExist = async (username) => {
 
 const register = async (req, res) => {
   const { username, password } = req.body;
-  console.info(
-    "registering user: ",
-    username,
-    " with password: ",
-    password,
-    "...",
-  );
+
   //check if user exists already
   if (await isUserExist(username)) {
     res.status(StatusCodes.BAD_REQUEST).send("User already exists");
     return;
   }
+  let hash;
+  try {
+    const salt = await bcrypt.genSalt(8);
+    hash = await bcrypt.hash(password, salt);
+  } catch (error) {
+    console.error(error);
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error);
+    return;
+  }
+
   const sql = "INSERT INTO users (username, password) VALUES (?, ?)";
   try {
-    const results = await db.query(sql, [username, password]);
+    const results = await db.query(sql, [username, hash]);
     res.status(StatusCodes.CREATED).send({ results });
     return;
   } catch (err) {
